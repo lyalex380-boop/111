@@ -336,6 +336,7 @@ html body:not(:has(.page:target)) #home.snow-fading-in{animation:snow-page-in-re
     return false;
   }
   enter.addEventListener('click',start,true);
-  if(['#home','#tarot','#echo'].indexOf(location.hash)!==-1)finish();
+  // Always show the opening screen on a fresh visit, even if an old #home fragment remains.
+  if(location.hash==='#home'){history.replaceState(null,'',location.pathname+location.search);}
 })();
 </script></body></html>
